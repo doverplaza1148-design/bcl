@@ -980,10 +980,18 @@
     <div class="reveal">
       <div class="map-wrap">
         <iframe
-          src="https://maps.google.com/maps?q=738+State+St,+Perth+Amboy,+NJ+08861&output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.936!2d-74.274984!3d40.516215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3b6e6b5e8a2e7%3A0xabc123!2s738%20State%20St%2C%20Perth%20Amboy%2C%20NJ%2008861%2C%20USA!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
           allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
+      <a
+        href="https://www.google.com/maps/dir/?api=1&destination=738+State+St,+Perth+Amboy,+NJ+08861"
+        target="_blank"
+        style="display:inline-flex;align-items:center;gap:8px;margin-top:1.2rem;color:var(--gold);font-weight:600;font-size:0.9rem;text-decoration:none;"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Get Directions
+      </a>
     </div>
   </section>
 
@@ -1016,4 +1024,14 @@
       const children = grid.querySelectorAll('.reveal');
       const gridObserver = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-          child
+          children.forEach((el, i) => {
+            setTimeout(() => el.classList.add('visible'), i * 120);
+          });
+          gridObserver.unobserve(grid);
+        }
+      }, { threshold: 0.1 });
+      gridObserver.observe(grid);
+    });
+  </script>
+</body>
+</html>
