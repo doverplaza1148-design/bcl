@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bay City Laundrymat – Perth Amboy, NJ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0b2d42;
+      --ocean:  #1a6fa0;
+      --sky:    #e8f4fc;
+      --aqua:   #4fb8d4;
+      --gold:   #f4a535;
+      --cream:  #faf8f5;
+      --white:  #ffffff;
+      --text:   #111820;
+      --muted:  #5a7080;
+      --border: rgba(11,45,66,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(11,45,66,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      letter-spacing: 0.2px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-weight: 700 !important;
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(244,165,53,0.4); color: var(--navy) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute; inset: 0;
+      background-image: url('images/hero-laundry.jpg');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      animation: kenburns 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes kenburns {
+      from { transform: scale(1.05) translateX(0); }
+      to   { transform: scale(1.12) translateX(-1%); }
+    }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg, rgba(11,45,66,0.93) 40%, rgba(26,111,160,0.7) 100%);
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 140px 6% 100px;
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 50px;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.7s ease both;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3rem, 7.5vw, 6rem);
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 1.4rem;
+      font-weight: 900;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .hero h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 480px;
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 2.8rem;
+      animation: fadeUp 0.9s 0.2s ease both;
+    }
+
+    .hero-btns {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 34px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+      letter-spacing: 0.3px;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+
+    .btn-primary { background: var(--gold); color: var(--navy); }
+    .btn-outline  { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.4); }
+    .btn-dark     { background: var(--navy); color: var(--white); }
+
+    /* Hero scroll indicator */
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.4); font-size: 0.7rem; letter-spacing: 2px;
+      text-transform: uppercase; z-index: 2;
+      animation: fadeUp 1.2s 0.8s ease both;
+    }
+    .scroll-dot {
+      width: 28px; height: 44px;
+      border: 2px solid rgba(255,255,255,0.25);
+      border-radius: 14px;
+      position: relative;
+    }
+    .scroll-dot::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { top: 7px; opacity: 1; }
+      80%       { top: 24px; opacity: 0.3; }
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--gold);
+      display: flex; justify-content: center; flex-wrap: wrap;
+    }
+    .stat-item {
+      flex: 1; min-width: 160px;
+      text-align: center;
+      padding: 20px 16px;
+      border-right: 1px solid rgba(0,0,0,0.08);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(11,45,66,0.65);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-top: 4px;
+    }
+
+    /* ── SECTION COMMONS ── */
+    .section { padding: 100px 6%; }
+
+    .section-label {
+      display: inline-block;
+      color: var(--ocean);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--navy);
+      line-height: 1.12;
+      margin-bottom: 1rem;
+      font-weight: 900;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 500px;
+      line-height: 1.75;
+      margin-bottom: 3.5rem;
+      font-weight: 300;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--cream); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(11,45,66,0.07);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+      position: relative;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(11,45,66,0.13);
+    }
+
+    .service-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .service-card:hover .service-img { transform: scale(1.05); }
+
+    .service-img-wrap { overflow: hidden; position: relative; }
+
+    .service-tag {
+      position: absolute;
+      top: 12px; left: 14px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .service-body { padding: 1.8rem; }
+    .service-body h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+    .service-body p { color: var(--muted); line-height: 1.7; font-size: 0.93rem; font-weight: 300; }
+
+    /* ── IMAGE FEATURE STRIP ── */
+    .img-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 320px;
+      overflow: hidden;
+    }
+    .img-strip-item { overflow: hidden; position: relative; }
+    .img-strip-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: brightness(0.8);
+    }
+    .img-strip-item:hover img { transform: scale(1.06); filter: brightness(0.95); }
+    .img-strip-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.2rem 1rem 1rem;
+      background: linear-gradient(transparent, rgba(11,45,66,0.8));
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── ABOUT ── */
+    .about-section {
+      background: var(--navy);
+      padding: 100px 6%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-section .section-label { color: var(--gold); }
+    .about-section .section-title { color: var(--white); margin-bottom: 1.2rem; }
+    .about-section > div > p {
+      color: rgba(255,255,255,0.65);
+      line-height: 1.85;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .features-list {
+      list-style: none; margin-top: 1.8rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem;
+    }
+    .features-list li {
+      display: flex; align-items: center; gap: 9px;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.9rem; font-weight: 400;
+    }
+    .features-list li::before {
+      content: '';
+      width: 18px; height: 18px; min-width: 18px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%230b2d42' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .about-photo-wrap img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+    .about-photo-badge {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .about-photo-badge span { display: block; font-size: 1.5rem; font-family: 'Fraunces', serif; font-weight: 900; }
+
+    /* ── PICKUP DELIVERY ── */
+    .pickup-section {
+      background: var(--sky);
+      padding: 100px 6%;
+      text-align: center;
+    }
+    .pickup-section .section-title { margin: 0 auto 0.6rem; }
+    .pickup-section .section-sub { margin: 0 auto 3.5rem; }
+
+    .pickup-steps {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;
+    }
+
+    .step {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.2rem 1.6rem;
+      width: 195px;
+      box-shadow: 0 4px 20px rgba(11,45,66,0.07);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      position: relative;
+    }
+    .step:hover { transform: translateY(-8px) scale(1.02); }
+
+    .step-num {
+      width: 42px; height: 42px;
+      background: var(--ocean);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem;
+      margin: 0 auto 1.2rem;
+      font-family: 'Fraunces', serif;
+    }
+
+    .step-img {
+      width: 70px; height: 70px;
+      border-radius: 14px;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+
+    .step h4 {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .step p { font-size: 0.8rem; color: var(--muted); font-weight: 300; }
+
+    .step-connector {
+      position: absolute; top: 44px; right: -28px;
+      width: 28px; height: 2px;
+      background: var(--ocean);
+      opacity: 0.3;
+    }
+    .step:last-child .step-connector { display: none; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      padding: 100px 6%;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.2rem;
+      box-shadow: 0 2px 20px rgba(11,45,66,0.07);
+      text-align: left;
+      border-bottom: 4px solid transparent;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .testimonial-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+    .stars { color: var(--gold); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 3px; }
+
+    .testimonial-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 1.4rem;
+      font-weight: 300;
+    }
+
+    .reviewer { display: flex; align-items: center; gap: 12px; }
+    .reviewer-avatar {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--ocean), var(--aqua));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-weight: 700; font-size: 0.85rem;
+    }
+    .reviewer-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: linear-gradient(140deg, var(--navy) 0%, #1a4a6b 100%);
+      padding: 100px 6%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-section .section-label { color: var(--gold); }
+    .contact-section .section-title { color: var(--white); margin-bottom: 1.8rem; }
+
+    .contact-detail {
+      display: flex; align-items: flex-start; gap: 14px;
+      margin-bottom: 1.6rem;
+    }
+
+    .contact-icon {
+      width: 46px; height: 46px; min-width: 46px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .contact-text strong {
+      display: block;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 3px;
+      font-size: 0.9rem;
+    }
+    .contact-text a, .contact-text span {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.93rem;
+      text-decoration: none;
+      font-weight: 300;
+    }
+    .contact-text a:hover { color: var(--gold); }
+
+    .map-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 340px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+
+    /* ── HOURS BANNER ── */
+    .hours-banner {
+      background: var(--gold);
+      padding: 28px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .hours-banner h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem;
+      color: var(--navy);
+      font-weight: 900;
+    }
+    .hours-item {
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .hours-item strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060d12;
+      padding: 2.4rem 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer p { color: rgba(255,255,255,0.3); font-size: 0.82rem; }
+    .footer-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 700;
+    }
+    .footer-logo span { color: var(--gold); }
+    .social-links { display: flex; gap: 0.8rem; }
+    .social-links a {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-links a:hover { background: var(--gold); color: var(--navy); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-section { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-section { grid-template-columns: 1fr; gap: 3rem; }
+      .nav-links { display: none; }
+      .img-strip { grid-template-columns: 1fr 1fr; height: 220px; }
+      .img-strip-item:last-child { display: none; }
+    }
+    @media (max-width: 600px) {
+      .img-strip { grid-template-columns: 1fr; height: 200px; }
+      .img-strip-item:not(:first-child) { display: none; }
+      .hours-banner { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#home">Bay<span>City</span> Laundrymat</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#pickup">Pickup & Delivery</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="nav-cta" href="https://www.mylaundryorder.com/?s=1727101235077x237050078667305100" target="_blank">Schedule Pickup</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Perth Amboy, NJ · Est. 2020</div>
+      <h1>Clean Laundry,<br><em>Zero Hassle.</em></h1>
+      <p>Fresh, folded laundry without lifting a finger. Drop it off, or let us pick it up right from your door — we handle everything.</p>
+      <div class="hero-btns">
+        <a class="btn btn-primary" href="https://www.mylaundryorder.com/?s=1727101235077x237050078667305100" target="_blank">Schedule Pickup</a>
+        <a class="btn btn-outline" href="#services">Our Services ↓</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-dot"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Coinless Options</div></div>
+    <div class="stat-item"><div class="stat-num">Free</div><div class="stat-label">Wi-Fi Inside</div></div>
+    <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">Video Monitoring</div></div>
+    <div class="stat-item"><div class="stat-num">New</div><div class="stat-label">State-of-Art Machines</div></div>
+    <div class="stat-item"><div class="stat-num">★ 5</div><div class="stat-label">Top Rated</div></div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <span class="section-label reveal">What We Offer</span>
+    <h2 class="section-title reveal">Services Built<br>Around Your Life</h2>
+    <p class="section-sub reveal">From quick self-service to full-service wash & fold, we make laundry as simple as possible.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <img class="service-img"
+            src="images/service-wash-fold.jpg"
+            alt="Neatly folded clean laundry" />
+          <span class="service-tag">Most Popular</span>
+        </div>
+        <div class="service-body">
+          <h3>Wash & Fold</h3>
+          <p>Drop off your laundry and we'll wash, dry, and neatly fold everything for you. Enjoy your free time while we handle it all.</p>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <img class="service-img"
+            src="images/service-self-service.jpg"
+            alt="Modern laundromat self-service machines" />
+        </div>
+        <div class="service-body">
+          <h3>Self-Service</h3>
+          <p>Brand new machines with soft water treatment. Accepts coins, credit cards, Apple Pay & Google Pay via Dexter Pay — easy and modern.</p>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <img class="service-img"
+            src="images/service-commercial.jpg"
+            alt="Hotel commercial laundry linen" />
+        </div>
+        <div class="service-body">
+          <h3>Commercial Laundry</h3>
+          <p>Special pricing available for hotels, salons, restaurants, and more. Call or email us for our commercial rates.</p>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <img class="service-img"
+            src="images/service-pickup.jpg"
+            alt="Laundry pickup and delivery service" />
+        </div>
+        <div class="service-body">
+          <h3>Pickup & Delivery</h3>
+          <p>We come to you! Schedule a pickup, we wash everything, and deliver it back clean and folded right to your door.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- IMAGE STRIP -->
+  <div class="img-strip">
+    <div class="img-strip-item">
+      <img src="images/strip-fresh.jpg" alt="Fresh white laundry" />
+      <div class="img-strip-caption">Fresh Every Time</div>
+    </div>
+    <div class="img-strip-item">
+      <img src="images/strip-machine.jpg" alt="Washing machine drum" />
+      <div class="img-strip-caption">Modern Equipment</div>
+    </div>
+    <div class="img-strip-item">
+      <img src="images/hero-laundry.jpg" alt="Clean folded clothes" />
+      <div class="img-strip-caption">Neatly Folded & Delivered</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="reveal">
+      <span class="section-label">About Us</span>
+      <h2 class="section-title">More Than Just a Laundromat</h2>
+      <p>Bay City Laundrymat is a rapidly growing chain with a focus on providing a clean, comfortable, and convenient alternative to traditional laundromats.</p>
+      <p>Proudly recognized by Loc8NearMe as one of the best businesses in the industry — standing out for quality and exceptional customer care.</p>
+      <ul class="features-list">
+        <li>State-of-the-art machines</li>
+        <li>Soft water treatment</li>
+        <li>Air conditioning</li>
+        <li>Free Wi-Fi</li>
+        <li>Video monitoring</li>
+        <li>Coinless laundry</li>
+        <li>Free wash promotions</li>
+        <li>Friendly staff</li>
+      </ul>
+    </div>
+    <div class="about-photo-wrap reveal">
+      <img
+        src="images/about-interior.jpg"
+        alt="Clean comfortable laundromat interior" />
+      <div class="about-photo-badge">
+        <span>Top Rated</span>
+        Perth Amboy's Favorite
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS BANNER -->
+  <div class="hours-banner">
+    <h3>We're Open 7 Days a Week</h3>
+    <div class="hours-item"><strong>Mon – Fri</strong>7:00 AM – 9:00 PM</div>
+    <div class="hours-item"><strong>Saturday</strong>7:00 AM – 8:00 PM</div>
+    <div class="hours-item"><strong>Sunday</strong>8:00 AM – 7:00 PM</div>
+    <a class="btn btn-dark" href="tel:7325406484">(732) 540-6484</a>
+  </div>
+
+  <!-- PICKUP DELIVERY -->
+  <section class="pickup-section" id="pickup">
+    <span class="section-label reveal">Pickup & Delivery</span>
+    <h2 class="section-title reveal">Laundry Done For You,<br>Start to Finish</h2>
+    <p class="section-sub reveal">Schedule online and we handle every step — no trips to the laundromat needed.</p>
+
+    <div class="pickup-steps">
+
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <img class="step-img"
+          src="images/step-schedule.jpg"
+          alt="Schedule online" />
+        <h4>Schedule</h4>
+        <p>Book online in under a minute</p>
+        <div class="step-connector"></div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <img class="step-img"
+          src="images/step-pickup.jpg"
+          alt="We pick up your laundry" />
+        <h4>We Pick Up</h4>
+        <p>We arrive at your door on time</p>
+        <div class="step-connector"></div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <img class="step-img"
+          src="images/service-wash-fold.jpg"
+          alt="We wash your clothes" />
+        <h4>We Wash</h4>
+        <p>Clean, fresh, and neatly folded</p>
+        <div class="step-connector"></div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">4</div>
+        <img class="step-img"
+          src="images/step-delivered.jpg"
+          alt="Delivered back to your door" />
+        <h4>Delivered Back</h4>
+        <p>Fresh laundry right to your door</p>
+        <div class="step-connector"></div>
+      </div>
+
+    </div>
+
+    <div style="margin-top: 3.5rem;">
+      <a class="btn btn-primary" href="https://www.mylaundryorder.com/?s=1727101235077x237050078667305100" target="_blank">Book Pickup Now</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section" id="testimonials">
+    <span class="section-label reveal">Testimonials</span>
+    <h2 class="section-title reveal">Happy Customers,<br>Every Time</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"The wash & fold service is a game changer. I dropped off a huge pile and everything came back perfectly clean and neatly stacked. Saves me hours every week!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">MR</div>
+          <span class="reviewer-name">Maria R.</span>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Best laundromat in Perth Amboy. The machines are brand new, it's super clean inside, and the staff is always friendly and helpful. Highly recommended!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">DJ</div>
+          <span class="reviewer-name">David J.</span>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"The pickup and delivery service is so convenient. They came right on time, and my laundry came back fresh and folded. Will definitely keep using this!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">SL</div>
+          <span class="reviewer-name">Sandra L.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="reveal">
+      <span class="section-label">Find Us</span>
+      <h2 class="section-title">Come Visit<br>or Reach Out</h2>
+
+      <div class="contact-detail">
+        <div class="contact-icon">📍</div>
+        <div class="contact-text">
+          <strong>Address</strong>
+          <a href="https://www.google.com/maps/search/?api=1&query=738+State+St,+Perth+Amboy,+NJ+08861" target="_blank">738 State St, Perth Amboy, NJ 08861</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">📞</div>
+        <div class="contact-text">
+          <strong>Phone / Text</strong>
+          <a href="tel:7325406484">(732) 540-6484</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28" height="28">
+            <circle cx="24" cy="24" r="24" fill="#25D366"/>
+            <path fill="#fff" d="M24 10.5c-7.456 0-13.5 6.044-13.5 13.5 0 2.385.627 4.72 1.816 6.77L10.5 37.5l7.02-1.783A13.45 13.45 0 0 0 24 37.5c7.456 0 13.5-6.044 13.5-13.5S31.456 10.5 24 10.5zm0 24.75a11.2 11.2 0 0 1-5.71-1.563l-.41-.244-4.165 1.058 1.1-3.94-.267-.405A11.19 11.19 0 0 1 12.75 24c0-6.213 5.037-11.25 11.25-11.25S35.25 17.787 35.25 24 30.213 35.25 24 35.25zm6.16-8.437c-.337-.169-1.993-.984-2.302-1.096-.308-.112-.533-.169-.757.169-.225.337-.87 1.096-1.066 1.32-.196.225-.393.253-.73.084-.337-.169-1.422-.524-2.709-1.672-1.001-.893-1.677-1.995-1.874-2.332-.196-.337-.021-.52.148-.688.152-.15.337-.393.506-.59.168-.196.224-.337.337-.562.112-.225.056-.421-.028-.59-.084-.169-.757-1.826-1.038-2.5-.273-.656-.55-.567-.757-.578l-.645-.011c-.225 0-.59.084-.899.421-.308.337-1.178 1.152-1.178 2.808s1.206 3.257 1.374 3.482c.169.225 2.373 3.62 5.749 5.078.804.347 1.43.554 1.919.709.806.256 1.54.22 2.12.133.647-.096 1.993-.814 2.274-1.6.281-.787.281-1.461.196-1.6-.084-.14-.308-.225-.645-.394z"/>
+          </svg>
+        </div>
+        <div class="contact-text">
+          <strong>WhatsApp</strong>
+          <a href="https://wa.me/17325406484" target="_blank">Chat on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-text">
+          <strong>Email</strong>
+          <a href="mailto:info@baycitylaundrymat.com">info@baycitylaundrymat.com</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28" height="28">
+            <circle cx="24" cy="24" r="24" fill="#1877F2"/>
+            <path fill="#fff" d="M31 24h-4.5v14h-5.5V24H18v-5h3v-3c0-4 2-6.5 6-6.5 1.7 0 3.5.3 3.5.3V15h-2c-1.9 0-2.5 1.2-2.5 2.4V19h4.5L31 24z"/>
+          </svg>
+        </div>
+        <div class="contact-text">
+          <strong>Facebook</strong>
+          <a href="https://www.facebook.com/BayCityLaundry/" target="_blank">BayCityLaundry</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28" height="28">
+            <defs>
+              <radialGradient id="ig-grad" cx="19%" cy="99%" r="108%">
+                <stop offset="0%"   stop-color="#ffd879"/>
+                <stop offset="20%"  stop-color="#f9a23a"/>
+                <stop offset="45%"  stop-color="#e1306c"/>
+                <stop offset="70%"  stop-color="#833ab4"/>
+                <stop offset="100%" stop-color="#405de6"/>
+              </radialGradient>
+            </defs>
+            <circle cx="24" cy="24" r="24" fill="url(#ig-grad)"/>
+            <rect x="13" y="13" width="22" height="22" rx="6" ry="6" fill="none" stroke="#fff" stroke-width="2.2"/>
+            <circle cx="24" cy="24" r="5.5" fill="none" stroke="#fff" stroke-width="2.2"/>
+            <circle cx="30.5" cy="17.5" r="1.4" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="contact-text">
+          <strong>Instagram</strong>
+          <a href="https://www.instagram.com/baycitylaundrymat" target="_blank">@baycitylaundrymat</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=738+State+St,+Perth+Amboy,+NJ+08861&output=embed"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Bay<span>City</span> Laundrymat</div>
+    <p>© 2025 Bay City Laundrymat · Perth Amboy, NJ · All rights reserved</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/BayCityLaundry/" target="_blank" title="Facebook">f</a>
+      <a href="https://www.instagram.com/baycitylaundrymat" target="_blank" title="Instagram">in</a>
+      <a href="https://wa.me/17325406484" target="_blank" title="WhatsApp">w</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Staggered reveals within grid parents
+    document.querySelectorAll('.services-grid, .pickup-steps, .testimonials-grid').forEach(grid => {
+      const children = grid.querySelectorAll('.reveal');
+      const gridObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          child
